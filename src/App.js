@@ -30,6 +30,7 @@ class App extends Component {
      console.log(`longitude: ${ lng } | latitude: ${ lat }`);
    }
   handleClick() {
+    var thisItem =this;
    console.log('this is:', this.state);
    if (navigator.geolocation) {
      // check if geolocation is supported/enabled on current browser
@@ -37,6 +38,7 @@ class App extends Component {
    function success(position) {
      console.log('latitude', position.coords.latitude,
                  'longitude', position.coords.longitude);
+                 thisItem.setState({position:position});
    },
   function error(error_message) {
   console.error('Your browser does not support navigation');
@@ -73,6 +75,7 @@ class App extends Component {
                 <p>Or</p>
                 <input type="text" name="zipcode" placeholder="zipcode" onChange={this.handleChange} />
                 <input type="submit" value="Submit" />
+                <ActivityListing position={this.state.position} />
               </div>
             </div>
           </div>
@@ -85,9 +88,9 @@ class App extends Component {
           path="/ActivityListing" component={ActivityListing}
         />
 
-        <Route 
-          exact 
-          path="/LocationPage" component={LocationPage} 
+        <Route
+          exact
+          path="/LocationPage" component={LocationPage}
         />
 
       </Switch>
