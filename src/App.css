@@ -1,9 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
-body{
+html{
   background: linear-gradient(-180deg, #3C96D2 13%, #3EE5AC 100%);
-  height: -webkit-fill-available;
+  height: 100%;
   font-family: 'Montserrat', sans-serif;
+}
+
+body{
+  background-color: transparent;
+}
+
+a{
+  -webkit-transition: .25s all ease;
+  -moz-transition: .25s all ease;
+  transition: .25s all ease;
 }
 
 .App {
