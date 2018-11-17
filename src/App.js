@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { GoogleApiWrapper, InfoWindow, Map, Marker } from 'google-maps-react';
+
 import logo from './logo.svg';
 import './App.css';
 import ActivityListing from './containers/ActivityListing';
+
 
 class App extends Component {
   constructor(props) {
