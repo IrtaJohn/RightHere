@@ -1,10 +1,14 @@
+body{
+  background: linear-gradient(-180deg, #3C96D2 13%, #3EE5AC 100%);
+  height: -webkit-fill-available;
+}
+
 .App {
   text-align: center;
 }
 
 .App-logo {
-  height: 35vmin;
-  padding-left: 40%
+  height: 60px;
 }
 
 .App-header {
@@ -20,21 +24,4 @@
 
 .App-link {
   color: #61dafb;
-}
-
-button{
-  background-color: #4C9CD2;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-}
-
-text{
-
 }

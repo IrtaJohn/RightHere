@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
+import ActivityListing from './containers/ActivityListing';
 
 class App extends Component {
   constructor(props) {
@@ -20,19 +23,37 @@ class App extends Component {
  }
   render() {
     return (
-      <div className="App">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Are you Bored? Wondering what to do? You are the right place
-          </p>
-          <button name="FindMe"  className="button" onClick={(e) => this.handleClick(e)}>
-                  Find Me
-          </button>
-        <p> Or</p>
-          <input type="text" name="zipcode" placeholder="zipcode" onChange={this.handleChange} />
-          <input type="submit" value="Submit" />
+      <Router>
 
-      </div>
+      <Switch>
+        <Route 
+        exact 
+        path="/"
+        render={ () => (
+
+          <div className="App">
+              <img src={logo} className="App-logo" alt="logo" />
+              <h1>Are you Bored? Wondering what to do? You are the right place</h1>
+              <button name="FindMe"  className="btn btn-primary" onClick={(e) => this.handleClick(e)}>
+                      Find Me
+              </button>
+              <p>Or</p>
+              <input type="text" name="zipcode" placeholder="zipcode" onChange={this.handleChange} />
+              <input type="submit" value="Submit" />
+          </div>
+
+          ) }
+        />
+
+        <Route 
+          exact 
+          path="/ActivityListing" component={ActivityListing} 
+        />
+
+      </Switch>
+
+      
+      </Router>
     );
   }
 }
