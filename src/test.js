@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
-import ActivityListing from './containers/ActivityListing';
 
 class App extends Component {
   constructor(props) {
@@ -38,11 +35,11 @@ class App extends Component {
   console.error('Your browser does not support navigation');
 
   });
-  }
-  else {
+}
+else {
   console.log('geolocation is not enabled on this browser')
-  }
-  }
+ }
+}
 
  handleChange(event) {
    this.setState({value: event.target.value});
@@ -50,39 +47,19 @@ class App extends Component {
  }
   render() {
     return (
-      <Router>
+      <div className="App">
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>
+            Are you Bored? Wondering what to do? You are at the right place
+          </p>
+          <button name="FindMe"  className="button" onClick={(e) => this.handleClick(e)}>
+                  Find Me
+          </button>
+        <p> Or</p>
+          <input type="text" name="zipcode" placeholder="zipcode" onChange={this.handleChange} />
+          <input type="submit" value="Submit" />
 
-      <Switch>
-        <Route
-        exact
-        path="/"
-        render={ () => (
-
-          <div className="App">
-            <div class="container">
-              <img src={logo} className="App-logo" alt="logo" />
-              <h1>Are you Bored? Wondering what to do? You are the right place</h1>
-              <button name="FindMe"  className="btn btn-primary" onClick={(e) => this.handleClick(e)}>
-                      Find Me
-              </button>
-              <p>Or</p>
-              <input type="text" name="zipcode" placeholder="zipcode" onChange={this.handleChange} />
-              <input type="submit" value="Submit" />
-            </div>
-          </div>
-
-          ) }
-        />
-
-        <Route
-          exact
-          path="/ActivityListing" component={ActivityListing}
-        />
-
-      </Switch>
-
-
-      </Router>
+      </div>
     );
   }
 }
