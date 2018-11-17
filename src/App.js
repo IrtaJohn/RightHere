@@ -6,6 +6,7 @@ import { GoogleApiWrapper, InfoWindow, Map, Marker } from 'google-maps-react';
 import logo from './logo.svg';
 import './App.css';
 import ActivityListing from './containers/ActivityListing';
+import LocationPage from './containers/LocationPage';
 
 
 class App extends Component {
@@ -53,6 +54,11 @@ class App extends Component {
         <Route 
           exact 
           path="/ActivityListing" component={ActivityListing} 
+        />
+
+        <Route 
+          exact 
+          path="/LocationPage" component={LocationPage} 
         />
 
       </Switch>
