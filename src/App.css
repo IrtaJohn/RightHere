@@ -55,3 +55,83 @@ a{
   background: #a504b9;
   background-color: #a504b9;
 }
+
+.title-salutations{
+  color: #fff;
+  margin: 60px 0 0 0;
+  line-height:1;
+  text-transform: uppercase;
+  font-size: 3em;
+  opacity: .7;
+  font-weight:800;
+  position: relative;
+  z-index: 1;
+}
+
+@media(min-width:768px){
+  .title-salutations{
+      font-size: 6em;
+  }
+}
+
+.panel--sm{
+  max-width: 70%;
+  margin: 0 auto;
+  z-index: 2;
+  padding: 2em;
+  position: relative;
+}
+
+@media(min-width:768px){
+  .panel--sm{
+    max-width: 60%;
+    margin-top: -18px;
+  }
+}
+
+.rh-form-group{
+  position: relative;
+}
+
+.btn--find{
+  width: 200px;
+}
+
+.rh-form-group .form-control{
+  height: 45px;
+  border-radius: 30px;
+  width: 200px;
+  margin: 0 auto;
+}
+
+.rh-form-submit {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: none;
+  background-color: transparent;
+  color: purple;
+  font-size: 0;
+}
+
+.rh-form-submit:before{
+  content: '';
+  display: block;
+  position: absolute;
+  width: 25px;
+  left: 30px;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('/images/icons/submit.svg');
+}
+
+.or-text{
+  font-size: 1em;
+  margin: .75em 0;
+  color: #999;
+}

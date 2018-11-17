@@ -68,4 +68,6 @@
 	background-image: url('../images/icons/love.svg');
 }
 
-
+.listing-results{
+	display: none;
+}
