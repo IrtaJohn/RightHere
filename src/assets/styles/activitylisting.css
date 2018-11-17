@@ -10,6 +10,9 @@
 .listing-item__img{
 	height: 200px;
 	background-color: #ddd;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
 }
 
 .listing-item__details{
@@ -50,6 +53,7 @@
 	display: block;
 	position: absolute;
 	width: 25px;
+	left: 0;
 	height: 100%;
 	background-size: contain;
 	background-repeat: no-repeat;
@@ -57,11 +61,11 @@
 }
 
 .listing-item__action--dismiss:before{
-	background-image: url('/images/icons/dismiss.svg');
+	background-image: url('../images/icons/dismiss.svg');
 }
 
 .listing-item__action--love:before{
-	background-image: url('/images/icons/love.svg');
+	background-image: url('../images/icons/love.svg');
 }
 
 

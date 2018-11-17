@@ -25,3 +25,19 @@ body{
 .App-link {
   color: #61dafb;
 }
+
+.btn{
+  border-radius: 30px;
+}
+
+.btn-primary{
+  background-color: #E300FF;
+  border-color: #E300FF;
+}
+
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus{
+  border-color: #a504b9;
+  background-color: #a504b9;
+}
