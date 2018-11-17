@@ -63,15 +63,17 @@ class App extends Component {
         render={ () => (
 
           <div className="App">
-            <div class="container">
-              <img src={logo} className="App-logo" alt="logo" />
-              <h1>Are you Bored? Wondering what to do? You are the right place</h1>
-              <button name="FindMe"  className="btn btn-primary" onClick={(e) => this.handleClick(e)}>
-                      Find Me
-              </button>
-              <p>Or</p>
-              <input type="text" name="zipcode" placeholder="zipcode" onChange={this.handleChange} />
-              <input type="submit" value="Submit" />
+            <img src={logo} className="App-logo" alt="logo" />
+            <div className="container">
+              <div className="panel panel--rh">
+                <h1>Are you Bored? Wondering what to do? You are the right place</h1>
+                <button name="FindMe"  className="btn btn-primary" onClick={(e) => this.handleClick(e)}>
+                        Find Me
+                </button>
+                <p>Or</p>
+                <input type="text" name="zipcode" placeholder="zipcode" onChange={this.handleChange} />
+                <input type="submit" value="Submit" />
+              </div>
             </div>
           </div>
 
