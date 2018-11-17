@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
 body{
   background: linear-gradient(-180deg, #3C96D2 13%, #3EE5AC 100%);
   height: -webkit-fill-available;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .App {
@@ -39,5 +42,6 @@ body{
 .btn-primary:active,
 .btn-primary:focus{
   border-color: #a504b9;
+  background: #a504b9;
   background-color: #a504b9;
 }
