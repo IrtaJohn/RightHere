@@ -7,6 +7,25 @@
 	min-height: 380px;
 }
 
+@media(min-width:768px){
+	.listing-results {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.listing-results .listing-item{
+		display: flex;
+   		flex-direction: column;
+		width: 50%;
+	}
+}
+
+@media(min-width:981px){
+	.listing-results .listing-item{
+		width: 33%;
+	}
+}
+
 .listing-item__img{
 	height: 200px;
 	background-color: #ddd;
