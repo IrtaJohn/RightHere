@@ -8,21 +8,15 @@
 }
 
 @media(min-width:768px){
-	.listing-results {
-		display: flex;
-		flex-wrap: wrap;
-	}
-
-	.listing-results .listing-item{
-		display: flex;
-   		flex-direction: column;
-		width: 50%;
+	.listing-item {
+		margin: 0 auto;
+		max-width: 300px;
 	}
 }
 
 @media(min-width:981px){
-	.listing-results .listing-item{
-		width: 33%;
+	.listing-item{
+		max-width: 360px;
 	}
 }
 
@@ -55,6 +49,8 @@
 
 .listing-item__desc{
 	color: #999;
+	max-height: 40px;
+	overflow: hidden;
 }
 
 .listing-item__action{

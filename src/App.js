@@ -71,7 +71,6 @@ class App extends Component {
             <img src={logo} className="App-logo" alt="logo" />
             <div className="container">
 
-
             <div id="welcome">
               <h1 className="title-salutations">Welcome</h1>
                 <div className="panel panel--rh panel--sm">
@@ -85,12 +84,9 @@ class App extends Component {
                 </div>
               </div>
 
-
-
               <div className="listing-results" id="results">
-                <ActivityListing position={this.state.position}/>
+                  <ActivityListing position={this.state.position}/>
               </div>
-
 
             </div>
           </div>
