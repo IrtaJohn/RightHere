@@ -1,5 +1,4 @@
 import React, { Component } from "react"; 
-import { Link } from 'react-router';
 import '../assets/styles/location.css';
 class LocationPage extends Component {
     
@@ -15,7 +14,7 @@ class LocationPage extends Component {
 						        	<h1 className="page-title">You are <em>Boston</em></h1>
 						        	<div className="panel panel--rh">
 						        		<h2 className="page-subtitle">The current Weather is ...</h2>
-						        		<img src="#" />
+						        		<img src="#" alt="alt text"/>
 						        		<p>rain and cloudy</p>
 						        		<p></p>
 						        		<button type="button" className="btn btn-primary">Show me ideas!</button>

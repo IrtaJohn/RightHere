@@ -1,14 +1,16 @@
 import React, { Component } from "react";
-import { Link } from 'react-router';
 import '../assets/styles/activitylisting.css';
+import Listing from '../components/Listing.js';
+import CarouselComp from '../components/CarouselComp.js';
+
 class ActivityListing extends Component {
   constructor(props) {
       super(props);
       this.state = {
-               error: null,
+              error: null,
               isLoaded: false,
-                items: [],
-                address:[]
+              items: [],
+              address:[]
         };
     }
      componentDidMount() {
@@ -50,40 +52,12 @@ class ActivityListing extends Component {
 
          }
 
-    getImageURL(item){
-        var imageURL = item.logo?item.logo.url:"URL";
-        return {
-          backgroundImage: "url(" + imageURL + ")"
-        }
-    }
-
     render(){
       var items = this.state.items;
       var locationData=this.state.address;
       console.log(99,locationData);
 	    return(
-    		<div className="listing-slider">
-        {locationData.map(item => (
-
-           <div className="listing-item__details">
-             <h2 className="listing-item__title">{locationData[0].locations[0].adminArea5}</h2>
-           </div>
-
-        ))}
-             {items.map(item => (
-               <section key={item.id} className="listing-item">
-                <div className="listing-item__img" style={this.getImageURL(item)} ></div>
-                <div className="listing-item__details">
-                  <h2 className="listing-item__title">{item.name.text}</h2>
-                  <div className="listing-item__desc text-center">{item.description.text}</div>
-                </div>
-                <footer className="listing-item__footer">
-                  <a href="#" className="listing-item__action listing-item__action--dismiss">Pass</a>
-                  <a href={item.url} className="listing-item__action listing-item__action--love">Lets Do It!</a>
-                </footer>
-               </section>
-             ))}
-    		</div>
+          <CarouselComp slideitems={items} />
         )
     }
 }
