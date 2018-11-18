@@ -14,7 +14,7 @@ class Listing extends Component {
 
   render() {
     return(
-      <section className="listing-item" key={this.props.metadata.id} >
+      <section className="listing-item" key={this.props.metadata.id} id={this.props.metadata.id} >
         <div className="listing-item__img" style={this.getImageURL(this.props.metadata)} ></div>
         <div className="listing-item__details">
           <h2 className="listing-item__title">{this.props.metadata.name.text}</h2>

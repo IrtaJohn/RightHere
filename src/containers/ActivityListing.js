@@ -55,7 +55,7 @@ class ActivityListing extends Component {
     render(){
       var items = this.state.items;
       var locationData=this.state.address;
-      console.log(99,locationData);
+      //console.log(99,locationData);
 	    return(
           <CarouselComp slideitems={items} />
         )
