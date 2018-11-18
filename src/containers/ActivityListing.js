@@ -66,7 +66,7 @@ class ActivityListing extends Component {
 var pincodeNo=this.state.pincodeNo;
 	    return(
            <div>
-          <h2 className="listing-item__title">You are in... {address},{pincodeNo}</h2>
+          <h2 className="listings-main-title">You are in... <strong>{address},{pincodeNo}</strong></h2>
           <CarouselComp slideitems={items} />
           </div>
         )

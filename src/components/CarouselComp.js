@@ -7,6 +7,10 @@ class CarouselComp extends Component {
 
   constructor(props) {
       super(props);
+      this.next = this.next.bind(this);
+  }
+  next() {
+    this.slider.slickNext();
   }
 
   render() {
@@ -18,11 +22,14 @@ class CarouselComp extends Component {
       slidesToScroll: 1
     };
     return (
-      <Slider {...settings}>
-        {this.props.slideitems.map(item => (
-           <Listing metadata={item} />
-        ))}
-      </Slider>
+      <div className="slick-slider-wrapper">
+        <Slider ref={c => (this.slider = c)} {...settings}>
+          {this.props.slideitems.map(item => (
+             <Listing metadata={item} />
+          ))}
+        </Slider>
+        <a className="custom-next-pass" onClick={this.next}>Next</a>
+      </div>
     );
   }
 }
