@@ -10,7 +10,10 @@ class ActivityListing extends Component {
               error: null,
               isLoaded: false,
               items: [],
-              address: null
+              address: null,
+              pincodeNo:null,
+              stateCode :null
+
         };
     }
      componentDidMount() {
@@ -45,7 +48,12 @@ class ActivityListing extends Component {
            const ADDRURL = mapQuestURL+lat+','+lng+'&outFormat=json&thumbMaps=false';
              fetch(ADDRURL).then(
                res=> res.json()).then((result)=>{
-               this.setState({address:result.results[0].locations[0].adminArea5});
+               this.setState(
+                 {address:result.results[0].locations[0].adminArea5,
+                  pincodeNo : result.results[0].locations[0].adminArea3,
+                  stateCode : result.results[0].locations[0].postalCode}
+
+               );
                console.log(13,result.results);
            })
 
@@ -54,13 +62,11 @@ class ActivityListing extends Component {
 
     render(){
       var items = this.state.items;
-      //console.log(12,items);
       var address=this.state.address;
-
-
+var pincodeNo=this.state.pincodeNo;
 	    return(
            <div>
-          <h2 className="listing-item__title">You are in... {address}</h2>
+          <h2 className="listing-item__title">You are in... {address},{pincodeNo}</h2>
           <CarouselComp slideitems={items} />
           </div>
         )
