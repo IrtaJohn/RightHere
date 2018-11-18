@@ -10,7 +10,7 @@ class ActivityListing extends Component {
               error: null,
               isLoaded: false,
               items: [],
-              address:[]
+              address: null
         };
     }
      componentDidMount() {
@@ -41,11 +41,11 @@ class ActivityListing extends Component {
                }
              )
              //39.755695%2C-104.995986&outFormat=json&thumbMaps=false
-             const mapQuestURL="https://www.mapquestapi.com/geocoding/v1/reverse?key=BPpNMuGeSSDGzC3iqnlFLM4ekE1vYYqV&location=";
+          const mapQuestURL="https://www.mapquestapi.com/geocoding/v1/reverse?key=BPpNMuGeSSDGzC3iqnlFLM4ekE1vYYqV&location=";
            const ADDRURL = mapQuestURL+lat+','+lng+'&outFormat=json&thumbMaps=false';
              fetch(ADDRURL).then(
                res=> res.json()).then((result)=>{
-               this.setState({address:result.results});
+               this.setState({address:result.results[0].locations[0].adminArea5});
                console.log(13,result.results);
            })
 
@@ -54,10 +54,15 @@ class ActivityListing extends Component {
 
     render(){
       var items = this.state.items;
-      var locationData=this.state.address;
-      //console.log(99,locationData);
+      //console.log(12,items);
+      var address=this.state.address;
+
+
 	    return(
+           <div>
+          <h2 className="listing-item__title">You are in... {address}</h2>
           <CarouselComp slideitems={items} />
+          </div>
         )
     }
 }
