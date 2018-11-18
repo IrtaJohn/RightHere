@@ -7,12 +7,14 @@ class ActivityListing extends Component {
       this.state = {
                error: null,
               isLoaded: false,
-                          items: []
+                items: [],
+                address:[]
         };
     }
      componentDidMount() {
        var lat= this.props.position && this.props.position.coords && this.props.position.coords.latitude
        var lng= this.props.position && this.props.position.coords && this.props.position.coords.longitude
+
        const eventBriteURL ="https://www.eventbriteapi.com/v3/events/search/?sort_by=distance&location.within=20mi&location.latitude=";
        const locationURL="&location.longitude=";
        const tokenURL="&token=FOK4SF7267TWBO44ONMD";
@@ -36,6 +38,16 @@ class ActivityListing extends Component {
                  });
                }
              )
+             //39.755695%2C-104.995986&outFormat=json&thumbMaps=false
+             const mapQuestURL="https://www.mapquestapi.com/geocoding/v1/reverse?key=BPpNMuGeSSDGzC3iqnlFLM4ekE1vYYqV&location=";
+           const ADDRURL = mapQuestURL+lat+','+lng+'&outFormat=json&thumbMaps=false';
+             fetch(ADDRURL).then(
+               res=> res.json()).then((result)=>{
+               this.setState({address:result.results});
+               console.log(13,result.results);
+           })
+
+
          }
 
     getImageURL(item){
@@ -47,8 +59,17 @@ class ActivityListing extends Component {
 
     render(){
       var items = this.state.items;
+      var locationData=this.state.address;
+      console.log(99,locationData);
 	    return(
     		<div className="listing-slider">
+        {locationData.map(item => (
+
+           <div className="listing-item__details">
+             <h2 className="listing-item__title">{locationData[0].locations[0].adminArea5}</h2>
+           </div>
+
+        ))}
              {items.map(item => (
                <section key={item.id} className="listing-item">
                 <div className="listing-item__img" style={this.getImageURL(item)} ></div>

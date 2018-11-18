@@ -6,6 +6,7 @@ import logo from './logo.svg';
 import './App.css';
 import ActivityListing from './containers/ActivityListing';
 import LocationPage from './containers/LocationPage';
+import GoogleMapReact from 'google-map-react';
 
 
 class App extends Component {
@@ -38,6 +39,8 @@ class App extends Component {
                   listmenu.style.display = 'block';
                  const welcome = document.getElementById('welcome');
                  welcome.style.display = 'none';
+                   var google=window.google;
+                   console.log(google);
    },
   function error(error_message) {
        console.error("Geo location Call is not successful");
@@ -50,6 +53,8 @@ class App extends Component {
 
  handleChange(event) {
    this.setState({value: event.target.value});
+
+
  }
   render() {
     return (
