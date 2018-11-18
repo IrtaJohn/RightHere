@@ -11,13 +11,12 @@ import LocationPage from './containers/LocationPage';
 class App extends Component {
   constructor(props) {
      super(props);
-     this.state = {value: ''};
+     this.state = {value: '', position:''};
      this.handleChange = this.handleChange.bind(this);
+     this.handleClick = this.handleClick.bind(this);
    }
 
     displayLocationInfo(position) {
-     const lng = position.coords.longitude;
-     const lat = position.coords.latitude;
      var options = {
           // enableHighAccuracy = should the device take extra time or power to return a really accurate result, or should it give you the quick (but less accurate) answer?
           enableHighAccuracy: false,
@@ -26,36 +25,31 @@ class App extends Component {
           // maximumAge = maximum age for a possible previously-cached position. 0 = must return the current position, not a prior cached position
           maximumAge: 0
         };
-     console.log(`longitude: ${ lng } | latitude: ${ lat }`);
    }
   handleClick() {
     var thisItem =this;
-   console.log('this is:', this.state);
    if (navigator.geolocation) {
      // check if geolocation is supported/enabled on current browser
-  navigator.geolocation.getCurrentPosition(
+   navigator.geolocation.getCurrentPosition(
    function success(position) {
-     console.log('latitude', position.coords.latitude,
-                 'longitude', position.coords.longitude);
-                 thisItem.setState({position:position});
+                 thisItem.setState({position:position}, function(state){
+                 });
                  const listmenu = document.getElementById('results');
                   listmenu.style.display = 'block';
-                const welcome = document.getElementById('welcome');
-                welcome.style.display = 'none';
+                 const welcome = document.getElementById('welcome');
+                 welcome.style.display = 'none';
    },
   function error(error_message) {
-  console.error('Your browser does not support navigation');
-
+       console.error("Geo location Call is not successful");
   });
   }
   else {
-  console.log('geolocation is not enabled on this browser')
+      console.log('geolocation is not enabled on this browser');
   }
   }
 
  handleChange(event) {
    this.setState({value: event.target.value});
-   console.log(event.target.value);
  }
   render() {
     return (
@@ -85,7 +79,7 @@ class App extends Component {
               </div>
 
               <div className="listing-results" id="results">
-                  <ActivityListing position={this.state.position}/>
+                  {this.state.position && <ActivityListing position={this.state.position}/>}
               </div>
 
             </div>
@@ -93,11 +87,7 @@ class App extends Component {
 
           ) }
         />
-
-
       </Switch>
-
-
       </Router>
     );
   }

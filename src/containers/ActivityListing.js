@@ -4,24 +4,23 @@ import '../assets/styles/activitylisting.css';
 class ActivityListing extends Component {
   constructor(props) {
       super(props);
-
       this.state = {
                error: null,
               isLoaded: false,
                           items: []
         };
-
-      // console.log('Inside act');
-      console.log(8,props);
-      this.componentDidMount = this.componentDidMount.bind(this);
-      //this.state = {value: '',position:''};
     }
-    componentDidMount() {
-           fetch("https://www.eventbriteapi.com/v3/events/search/?sort_by=distance&location.within=20mi&location.latitude=42.3620565&location.longitude=-71.0818178&token=FOK4SF7267TWBO44ONMD")
+     componentDidMount() {
+       var lat= this.props.position && this.props.position.coords && this.props.position.coords.latitude
+       var lng= this.props.position && this.props.position.coords && this.props.position.coords.longitude
+       const eventBriteURL ="https://www.eventbriteapi.com/v3/events/search/?sort_by=distance&location.within=20mi&location.latitude=";
+       const locationURL="&location.longitude=";
+       const tokenURL="&token=FOK4SF7267TWBO44ONMD";
+       const URL = eventBriteURL+lat+locationURL+lng+tokenURL;
+           fetch(URL)
              .then(res => res.json())
              .then(
                (result) => {
-                 console.log('inside loop')
                  this.setState({
                    isLoaded: true,
                    items: result.events
@@ -37,8 +36,6 @@ class ActivityListing extends Component {
                  });
                }
              )
-
-             console.log(this.state.isLoaded);
          }
 
     getImageURL(item){
@@ -49,11 +46,7 @@ class ActivityListing extends Component {
     }
 
     render(){
-      console.log(9,this.props.position);
-      //console.log(this.state.position);
-      var lat= this.props.position && this.props.position.coords && this.props.position.coords.latitude
       var items = this.state.items;
-
 	    return(
     		<div className="listing-slider">
              {items.map(item => (
